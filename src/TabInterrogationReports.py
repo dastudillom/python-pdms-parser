@@ -1,4 +1,6 @@
-##This will contain custom function to scrap pdf files downloaded from PDMS
+##Parser tool to extract events tabulated in interrogation reports downloaded from PDMS as PDF files 
+##Requires Python>=3.8
+##Requires pandas, pdfminer.six and PyPDF2 installed
 
 #Import standard libraries
 import pandas as pd
@@ -14,13 +16,13 @@ import pathlib
 #Import custom functions
 from ParserTools import GetFilePaths, MergeFiles, RunParser
 
-#User-specified inputs
-patient_id = 'PR05'
-start, stop = '20240214_0000', '20240215_0000'
-INDIR = '/userdata/dastudillo/patient_data/tmp/'
-OUTDIR = '/userdata/dastudillo/patient_data/tmp'
+#User-specified inputs (Modify accoding to your study)
+patient_id = '' #Defined by your study
+start, stop = 'YYYYMMDD_HHMM', 'YYYYMMDD_HHMM' #Date and time of period you will tabulate
+INDIR = '/path/to/interrogation/reports/pdf/files/' 
+OUTDIR = '/path/to/save/output/file'
 
-#Main code
+#Main code (Do not modify)
 fn_merged = f'{patient_id}_{start}-{stop}_merged.pdf'
 fn_parsed = f'{patient_id}_{start}-{stop}_parsed.csv'
 
